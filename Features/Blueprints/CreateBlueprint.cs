@@ -30,7 +30,7 @@ namespace FactorioBlueprintDesigner.Features.Blueprints
                     Name = request.Name,
                     Description = request.Description,
                     Version = request.Version,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 _dbContext.Add(blueprint);

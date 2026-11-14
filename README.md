@@ -16,8 +16,12 @@ A desktop-first web application for planning, creating, and editing Factorio blu
 
 | Area | Technology | Role |
 | --- | --- | --- |
-| Web client | React + TypeScript | Blueprint editor and user interface |
-| Local persistence | IndexedDB | Offline-first browser storage and autosave |
+| Component | Technology | Purpose |
+|---|---|---|
+| Web client | React + TypeScript | Interactive blueprint editor and user interface |
+| Mobile app | React Native + TypeScript | Mobile blueprint editor for Android and iOS |
+| Local persistence (Web) | IndexedDB | Offline-first browser storage and autosave |
+| Local persistence (Mobile) | SQLite | Offline-first mobile storage and autosave |
 | API (later phase) | ASP.NET Core / .NET | Cloud-related endpoints |
 | API architecture | Vertical Slice Architecture (VSA) | Organize backend code by feature |
 | Request handling | CQRS + MediatR | Separate commands and queries |

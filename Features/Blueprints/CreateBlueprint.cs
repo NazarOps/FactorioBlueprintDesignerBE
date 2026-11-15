@@ -6,14 +6,14 @@ namespace FactorioBlueprintDesigner.Features.Blueprints
 {
     public static class CreateBlueprint
     {
-        public class Command : IRequest<Guid>
+        public class Command : IRequest<int>
         {
             public string Name { get; set; } = null!;
             public string? Description { get; set; }
             public long Version { get; set; }
         }
 
-        internal sealed class Handler : IRequestHandler<Command, Guid>
+        internal sealed class Handler : IRequestHandler<Command, int>
         {
             private readonly AppDbContext _dbContext;
 
@@ -22,11 +22,10 @@ namespace FactorioBlueprintDesigner.Features.Blueprints
                 _dbContext = dbContext;
             }
 
-            public async Task<Guid> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<int> Handle(Command request, CancellationToken cancellationToken)
             {
                 var blueprint = new Blueprint
                 {
-                    Id = Guid.NewGuid(),
                     Name = request.Name,
                     Description = request.Description,
                     Version = request.Version,

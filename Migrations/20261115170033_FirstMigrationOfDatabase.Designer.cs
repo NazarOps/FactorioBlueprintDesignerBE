@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace FactorioBlueprintDesigner.Migrations
+namespace FactorioBlueprintDesignerAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261113234228_InitialPostgresDbMigration")]
-    partial class InitialPostgresDbMigration
+    [Migration("20261115170033_FirstMigrationOfDatabase")]
+    partial class FirstMigrationOfDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,9 +52,11 @@ namespace FactorioBlueprintDesigner.Migrations
 
             modelBuilder.Entity("FactorioBlueprintDesigner.Entities.Blueprint", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccountId")
                         .HasColumnType("integer");
@@ -115,18 +117,20 @@ namespace FactorioBlueprintDesigner.Migrations
 
             modelBuilder.Entity("FactorioBlueprintDesigner.Entities.BlueprintEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("BlueprintId")
-                        .HasColumnType("uuid");
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BlueprintId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("Direction")
                         .HasColumnType("integer");
 
-                    b.Property<Guid>("EntityDefinitionId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("EntityDefinitionId")
+                        .HasColumnType("integer");
 
                     b.Property<decimal>("PositionX")
                         .HasColumnType("numeric");
@@ -145,9 +149,11 @@ namespace FactorioBlueprintDesigner.Migrations
 
             modelBuilder.Entity("FactorioBlueprintDesigner.Entities.EntityDefinition", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Category")
                         .IsRequired()

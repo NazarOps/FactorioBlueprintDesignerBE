@@ -11,6 +11,7 @@ A desktop-first web application for planning, creating, and editing Factorio blu
 - Automatically save blueprints locally and restore them when returning to the app.
 - Import and export Factorio-compatible blueprint strings (second milestone).
 - Eventually support accounts, cloud storage, and synchronization across devices.
+- Android mobile application with React Native.
 
 ## Tech stack
 
@@ -32,7 +33,7 @@ A desktop-first web application for planning, creating, and editing Factorio blu
 
 The client and API are maintained as **separate projects/repositories**. The following is an illustrative feature-oriented layout, not a claim that every file already exists.
 
-### `FactorioPlanner-Client`
+### `FactorioBlueprintDesignerFE` (later phase)
 
 ```text
 FactorioPlanner-Client/
@@ -46,7 +47,7 @@ FactorioPlanner-Client/
 └── README.md
 ```
 
-### `FactorioPlanner-API` (later phase)
+### `FactorioBlueprintDesignerBE` (priority)
 
 ```text
 FactorioPlanner-API/
@@ -78,8 +79,8 @@ Handlers use EF Core's `AppDbContext` **directly**. The initial design intention
 
 1. **Milestone 1 — Local editor + persistence:** Interactive blueprint editor with entity placement/movement/rotation/deletion, IndexedDB autosave, and restoring saved work on return. Both editing **and** persistence are required for this milestone.
 2. **Milestone 2 — Factorio compatibility:** Import, decode, edit, encode, and export Factorio blueprint strings.
-3. **Later — Cloud features:** ASP.NET Core API, PostgreSQL storage, accounts, and synchronization.
-4. **Future possibilities:** Mobile/touch support and more advanced entity or blueprint functionality.
+3. **Milestone 3 — Cloud features:** ASP.NET Core API, PostgreSQL storage, accounts, and synchronization.
+4. **Milestone 4 — Mobile/touch support:** and more advanced entity or blueprint functionality.
 
 ## Data model (planned for the API)
 
@@ -93,7 +94,7 @@ These models describe the longer-term backend design; **the first milestone does
 
 ## Current scope
 
-The immediate priority is to prove the core editing experience in the React client. Authentication, PostgreSQL, cloud saving, and synchronization are intentionally deferred until the editor and local persistence work reliably.
+The immediate priority is to prove the core editing experience in the React client. Authentication, PostgreSQL, cloud saving, and synchronization are intentionally deferred until the editor and local persistence work reliably, mobile app development will start after the core experience has been implemented.
 
 ---
 

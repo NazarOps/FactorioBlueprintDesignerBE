@@ -37,7 +37,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./FactorioBlueprintDesigner.csproj
+        run: dotnet restore ./FactorioBlueprintDesignerAPI.csproj
 
       - name: Build API
-        run: dotnet build ./FactorioBlueprintDesigner.csproj --configuration Release --no-restore
+        run: dotnet build ./FactorioBlueprintDesignerAPI.csproj --configuration Release --no-restore

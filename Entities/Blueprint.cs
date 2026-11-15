@@ -2,7 +2,7 @@
 {
     public class Blueprint
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         // Foreign keys
         public int AccountId { get; set; }

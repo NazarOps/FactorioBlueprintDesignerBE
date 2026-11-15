@@ -1,4 +1,7 @@
+using Carter;
 using FactorioBlueprintDesigner.Database;
+using FactorioBlueprintDesignerAPI.Features.Blueprints;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Scalar;
 using Scalar.AspNetCore;
@@ -13,6 +16,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
+var assembly = typeof(Program).Assembly;
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
+
+builder.Services.AddCarter();
+
+builder.Services.AddValidatorsFromAssembly(assembly);
 
 var app = builder.Build();
 
@@ -23,6 +33,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
+app.MapCarter();
 app.UseHttpsRedirection();
 
 

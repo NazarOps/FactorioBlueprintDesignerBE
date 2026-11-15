@@ -1,0 +1,43 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - '**/*.md'
+
+  pull_request:
+    branches: [master]
+    paths-ignore:
+      - '**/*.md'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build .NET API
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Check project files
+        run: |
+          pwd
+          ls -la
+          find . -name "*.csproj"
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ./FactorioBlueprintDesignerAPI.csproj
+
+      - name: Build API
+        run: dotnet build ./FactorioBlueprintDesignerAPI.csproj --configuration Release --no-restore

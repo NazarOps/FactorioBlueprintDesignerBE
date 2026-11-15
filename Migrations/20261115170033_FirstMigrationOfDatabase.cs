@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace FactorioBlueprintDesigner.Migrations
+namespace FactorioBlueprintDesignerAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialPostgresDbMigration : Migration
+    public partial class FirstMigrationOfDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,8 @@ namespace FactorioBlueprintDesigner.Migrations
                 name: "EntityDefinitions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     Category = table.Column<string>(type: "text", nullable: false),
@@ -68,7 +69,8 @@ namespace FactorioBlueprintDesigner.Migrations
                 name: "Blueprints",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     AccountId = table.Column<int>(type: "integer", nullable: false),
                     BlueprintBookId = table.Column<int>(type: "integer", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -96,9 +98,10 @@ namespace FactorioBlueprintDesigner.Migrations
                 name: "BlueprintEntities",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    BlueprintId = table.Column<Guid>(type: "uuid", nullable: false),
-                    EntityDefinitionId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    BlueprintId = table.Column<int>(type: "integer", nullable: false),
+                    EntityDefinitionId = table.Column<int>(type: "integer", nullable: false),
                     PositionX = table.Column<decimal>(type: "numeric", nullable: false),
                     PositionY = table.Column<decimal>(type: "numeric", nullable: false),
                     Direction = table.Column<int>(type: "integer", nullable: false)

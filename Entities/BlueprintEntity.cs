@@ -4,11 +4,11 @@ namespace FactorioBlueprintDesigner.Entities
 {
     public class BlueprintEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         // Foreign keys
-        public Guid BlueprintId { get; set; }
-        public Guid EntityDefinitionId { get; set; }
+        public int BlueprintId { get; set; }
+        public int EntityDefinitionId { get; set; }
 
         // Navigation properties
         public virtual Blueprint Blueprint { get; set; } = null!;

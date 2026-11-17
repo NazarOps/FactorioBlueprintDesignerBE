@@ -40,6 +40,7 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
             public async Task<Result<int>> Handle(Command request, CancellationToken cancellationToken)
             {
                 var validationResult = _validator.Validate(request);
+
                 if (!validationResult.IsValid)
                 {
                     return Result.Failure<int>(new Error(
@@ -52,7 +53,8 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
                     Name = request.Name,
                     Description = request.Description,
                     Version = request.Version,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.UtcNow,
+                    AccountId = 1
                 };
 
                 _dbContext.Add(blueprint);

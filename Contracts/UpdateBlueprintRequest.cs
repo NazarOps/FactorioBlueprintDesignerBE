@@ -1,4 +1,4 @@
-﻿namespace FactorioBlueprintDesignerAPI.Contracts
+namespace FactorioBlueprintDesignerAPI.Contracts
 {
     public class UpdateBlueprintRequest
     {

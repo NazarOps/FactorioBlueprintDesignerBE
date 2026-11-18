@@ -1,4 +1,4 @@
-﻿using FactorioBlueprintDesigner.Entities.Enum;
+using FactorioBlueprintDesigner.Entities.Enum;
 
 namespace FactorioBlueprintDesigner.Entities
 {

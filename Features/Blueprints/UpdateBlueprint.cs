@@ -1,4 +1,4 @@
-﻿using Carter;
+using Carter;
 using FactorioBlueprintDesigner.Database;
 using FactorioBlueprintDesigner.Entities;
 using FactorioBlueprintDesignerAPI.Contracts;
@@ -43,7 +43,7 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
             public async Task<Result<int>> Handle(Command request, CancellationToken cancellationToken)
             {
                 var validationResult = await _validator.ValidateAsync(request, cancellationToken);
-                
+
                 if (!validationResult.IsValid)
                 {
                     return Result.Failure<int>(new Error(
@@ -102,14 +102,14 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
                         Name = request.Name,
                         Description = request.Description,
                         ClearDescription = request.ClearDescription
-                        
+
                     };
 
                     var result = await sender.Send(command, cancellationToken);
 
-                    if (result.IsFailure) 
+                    if (result.IsFailure)
                     {
-                        if(result.Error.Code == "UpdateBlueprint.NotFound")
+                        if (result.Error.Code == "UpdateBlueprint.NotFound")
                         {
                             return Results.NotFound(result.Error);
                         }

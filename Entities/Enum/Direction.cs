@@ -1,4 +1,4 @@
-﻿namespace FactorioBlueprintDesigner.Entities.Enum
+namespace FactorioBlueprintDesigner.Entities.Enum
 {
     public enum Direction
     {

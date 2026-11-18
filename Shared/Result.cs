@@ -1,4 +1,4 @@
-﻿namespace FactorioBlueprintDesignerAPI.Shared
+namespace FactorioBlueprintDesignerAPI.Shared
 {
     public class Result
     {

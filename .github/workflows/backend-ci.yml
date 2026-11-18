@@ -25,12 +25,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Check project files
-        run: |
-          pwd
-          ls -la
-          find . -name "*.csproj"
-
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v6
         with:
@@ -38,6 +32,9 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore ./FactorioBlueprintDesignerAPI.csproj
+
+      - name: Check code formatting
+        run: dotnet format ./FactorioBlueprintDesignerAPI.csproj --verify-no-changes --no-restore
 
       - name: Build API
         run: dotnet build ./FactorioBlueprintDesignerAPI.csproj --configuration Release --no-restore

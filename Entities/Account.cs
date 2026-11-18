@@ -1,4 +1,4 @@
-﻿namespace FactorioBlueprintDesigner.Entities
+namespace FactorioBlueprintDesigner.Entities
 {
     public class Account
     {

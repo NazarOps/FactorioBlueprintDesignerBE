@@ -1,4 +1,4 @@
-﻿using FactorioBlueprintDesigner.Entities;
+using FactorioBlueprintDesigner.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace FactorioBlueprintDesigner.Database

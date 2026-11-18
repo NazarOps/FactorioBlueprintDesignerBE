@@ -1,4 +1,4 @@
-﻿using Carter;
+using Carter;
 using FactorioBlueprintDesigner.Database;
 using FactorioBlueprintDesigner.Entities;
 using FactorioBlueprintDesignerAPI.Contracts;
@@ -20,7 +20,7 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
 
         public class Validator : AbstractValidator<Command>
         {
-           public Validator()
+            public Validator()
             {
                 RuleFor(c => c.Name).NotEmpty();
             }
@@ -47,7 +47,7 @@ namespace FactorioBlueprintDesignerAPI.Features.Blueprints
                         "CreateBlueprint.Validation",
                         validationResult.ToString()));
                 }
-                
+
                 var blueprint = new Blueprint
                 {
                     Name = request.Name,

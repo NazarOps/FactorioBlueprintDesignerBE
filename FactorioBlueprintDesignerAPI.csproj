@@ -28,4 +28,12 @@
 		<Folder Include="Extentions\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\hp\Desktop\NBI Handelsakademin Kurser\Webbapplikationer\Factorio Blueprint Designer\FactorioBlueprintDesigner\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\hp\Desktop\NBI Handelsakademin Kurser\Webbapplikationer\Factorio Blueprint Designer\FactorioBlueprintDesigner\.editorconfig" />
+	</ItemGroup>
+
 </Project>
